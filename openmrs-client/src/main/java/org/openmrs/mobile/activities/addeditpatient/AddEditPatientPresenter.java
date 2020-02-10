@@ -88,6 +88,7 @@ public class AddEditPatientPresenter extends BasePresenter implements AddEditPat
     public void confirmRegister(Patient patient) {
         if (!registeringPatient && validate(patient)) {
             mPatientInfoView.setProgressBarVisibility(true);
+            mPatientInfoView.removeUserInteraction(true);
             mPatientInfoView.hideSoftKeys();
             registeringPatient = true;
             findSimilarPatients(patient);
@@ -100,6 +101,7 @@ public class AddEditPatientPresenter extends BasePresenter implements AddEditPat
     public void confirmUpdate(Patient patient) {
         if (!registeringPatient && validate(patient)) {
             mPatientInfoView.setProgressBarVisibility(true);
+            mPatientInfoView.removeUserInteraction(true);
             mPatientInfoView.hideSoftKeys();
             registeringPatient = true;
             updatePatient(patient);
@@ -206,6 +208,7 @@ public class AddEditPatientPresenter extends BasePresenter implements AddEditPat
             public void onErrorResponse(String errorMessage) {
                 registeringPatient = false;
                 mPatientInfoView.setProgressBarVisibility(false);
+                mPatientInfoView.removeUserInteraction(false);
             }
         });
     }
@@ -222,6 +225,7 @@ public class AddEditPatientPresenter extends BasePresenter implements AddEditPat
             public void onErrorResponse(String errorMessage) {
                 registeringPatient = false;
                 mPatientInfoView.setProgressBarVisibility(false);
+                mPatientInfoView.removeUserInteraction(false);
             }
         });
     }
@@ -247,6 +251,7 @@ public class AddEditPatientPresenter extends BasePresenter implements AddEditPat
                 public void onFailure(@NonNull Call<Results<Module>> call, @NonNull Throwable t) {
                     registeringPatient = false;
                     mPatientInfoView.setProgressBarVisibility(false);
+                    mPatientInfoView.removeUserInteraction(false);
                     ToastUtil.error(t.getMessage());
                 }
             });
@@ -281,6 +286,7 @@ public class AddEditPatientPresenter extends BasePresenter implements AddEditPat
                     }
                 } else {
                     mPatientInfoView.setProgressBarVisibility(false);
+                    mPatientInfoView.removeUserInteraction(false);
                     ToastUtil.error(response.message());
                 }
             }
@@ -289,6 +295,7 @@ public class AddEditPatientPresenter extends BasePresenter implements AddEditPat
             public void onFailure(@NonNull Call<Results<Patient>> call, @NonNull Throwable t) {
                 registeringPatient = false;
                 mPatientInfoView.setProgressBarVisibility(false);
+                mPatientInfoView.removeUserInteraction(false);
                 ToastUtil.error(t.getMessage());
             }
         });
@@ -309,6 +316,7 @@ public class AddEditPatientPresenter extends BasePresenter implements AddEditPat
                     }
                 } else {
                     mPatientInfoView.setProgressBarVisibility(false);
+                    mPatientInfoView.removeUserInteraction(false);
                     ToastUtil.error(response.message());
                 }
             }
@@ -317,6 +325,7 @@ public class AddEditPatientPresenter extends BasePresenter implements AddEditPat
             public void onFailure(@NonNull Call<Results<Patient>> call, @NonNull Throwable t) {
                 registeringPatient = false;
                 mPatientInfoView.setProgressBarVisibility(false);
+                mPatientInfoView.removeUserInteraction(false);
                 ToastUtil.error(t.getMessage());
             }
         });

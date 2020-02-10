@@ -50,6 +50,8 @@ public interface AddEditPatientContract {
         void showUpgradeRegistrationModuleInfo();
 
         boolean areFieldsNotEmpty();
+
+        void removeUserInteraction(boolean remove);
     }
 
     interface Presenter extends BasePresenterContract {

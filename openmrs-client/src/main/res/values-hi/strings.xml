@@ -358,5 +358,6 @@
 	<string name="intro_location_desc">आप एक साधारण क्लिक पर अपना स्थान बदल सकते हैं।</string>
 	<string name="intro_settings_desc">हमारी डार्क मोड सुविधा देखें।\n आएँ शुरू करें।</string>
 	<string name="get_started_with_our_user_guide">हमारे उपयोगकर्ता गाइड के साथ आरंभ करें</string>
+	<string name="reset_patient_details">रोगी को रीसेट करें?</string>
 
 </resources>
